@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/case-task-genesis-front-end-school/static/css/main.e6c13ad2.css",
-    "main.js": "/case-task-genesis-front-end-school/static/js/main.38e05527.js",
+    "main.js": "/case-task-genesis-front-end-school/static/js/main.8307d932.js",
     "index.html": "/case-task-genesis-front-end-school/index.html",
     "main.e6c13ad2.css.map": "/case-task-genesis-front-end-school/static/css/main.e6c13ad2.css.map",
-    "main.38e05527.js.map": "/case-task-genesis-front-end-school/static/js/main.38e05527.js.map"
+    "main.8307d932.js.map": "/case-task-genesis-front-end-school/static/js/main.8307d932.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.38e05527.js"
+    "static/js/main.8307d932.js"
   ]
 }
