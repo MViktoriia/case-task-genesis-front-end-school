@@ -1,16 +1,16 @@
-// import axios from "axios";
+import axios from "axios";
 
-// const BASE_URL = "http://api.wisey.app/api/v1";
+const BASE_URL = "https://api.wisey.app/api/v1";
 
-// const instance = axios.create({
-// 	baseURL: BASE_URL,
-// 	method: "GET",
-// 	headers: {
-// 		"Content-Type": "application/json",
-// 		Authorization:
-// 			"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYmIzZDBlOS1kYjhjLTRhZGUtOWFlZi1mYWYxZWUwOGMwOTkiLCJwbGF0Zm9ybSI6InN1YnNjcmlwdGlvbnMiLCJpYXQiOjE2Nzg4MTQyMTAsImV4cCI6MTY3OTcxNDIxMH0.VXQMnnQpWOE62JASAjW3gqXr9rQ8So9YG4x-wKsgP1I",
-// 	},
-// });
+const instance = axios.create({
+	baseURL: BASE_URL,
+	method: "GET",
+	headers: {
+		"Content-Type": "application/json",
+		Authorization:
+			"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYmIzZDBlOS1kYjhjLTRhZGUtOWFlZi1mYWYxZWUwOGMwOTkiLCJwbGF0Zm9ybSI6InN1YnNjcmlwdGlvbnMiLCJpYXQiOjE2Nzg4MTQyMTAsImV4cCI6MTY3OTcxNDIxMH0.VXQMnnQpWOE62JASAjW3gqXr9rQ8So9YG4x-wKsgP1I",
+	},
+});
 
 // const token = {
 // 	set(token) {
@@ -34,27 +34,12 @@
 // 	}
 // };
 
-// export const fetchCourses = async () => {
-// 	const res = await instance.get("/core/preview-courses");
-// 	console.log(res);
-// 	return res;
-// };
-
-const requestOptions = {
-	method: "GET",
-	headers: {
-		"Content-Type": "application/json",
-		Authorization:
-			"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkYmIzZDBlOS1kYjhjLTRhZGUtOWFlZi1mYWYxZWUwOGMwOTkiLCJwbGF0Zm9ybSI6InN1YnNjcmlwdGlvbnMiLCJpYXQiOjE2Nzg4MTQyMTAsImV4cCI6MTY3OTcxNDIxMH0.VXQMnnQpWOE62JASAjW3gqXr9rQ8So9YG4x-wKsgP1I",
-	},
+export const fetchCourses = async () => {
+	const res = await instance.get("/core/preview-courses");
+	return res;
 };
 
-export const fetchCourses = () => {
-	return fetch(
-		"https://api.wisey.app/api/v1/core/preview-courses",
-		requestOptions
-	);
-	// .then((response) => response.json())
-	// .then((data) => data)
-	// .catch((error) => console.log("error", error));
+export const fetchCourseDetails = async (id) => {
+	const res = await instance.get(`/core/preview-courses/${id}`);
+	return res;
 };

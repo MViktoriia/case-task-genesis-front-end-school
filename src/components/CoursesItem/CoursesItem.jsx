@@ -2,15 +2,17 @@ import React from "react";
 import {
 	Card,
 	Image,
-	Stack,
 	CardBody,
 	Heading,
 	Text,
 	CardFooter,
+	Box,
 } from "@chakra-ui/react";
-import { StarIcon } from "@chakra-ui/icons";
+import StarRatings from "react-star-ratings";
+import { Link } from "react-router-dom";
 
 function CoursesItem({
+	id,
 	img,
 	title,
 	description,
@@ -19,44 +21,54 @@ function CoursesItem({
 	rating,
 }) {
 	return (
-		<Card
-			direction={{ base: "column" }}
-			overflow="hidden"
-			minH="400px"
-			variant="elevated"
-			shadow="xl"
-			_hover={{
-				shadow: "2xl",
-			}}
-		>
-			<Image
-				objectFit="cover"
-				h={{ base: "100px", md: "300px" }}
-				minH="200px"
-				maxW={{ base: "100%" }}
-				src={img}
-				alt={title}
-			/>
+		<Link to={`/${id}`} display="flex" height="100%">
+			<Card
+				display="flex"
+				flexDirection="column"
+				height="100%"
+				overflow="hidden"
+				variant="elevated"
+				shadow="xl"
+				borderRadius="16px"
+				_hover={{
+					shadow: "2xl",
+				}}
+			>
+				<Box h="160px" w="auto" overflow="hidden">
+					<Image h="100%" src={img} alt={title} />
+				</Box>
 
-			<Stack>
-				<CardBody>
-					<Heading size="md">{title}</Heading>
+				<Box flex="1">
+					<CardBody pb="0">
+						<Heading size="md">{title}</Heading>
 
-					<Text py="2">{description}</Text>
-					{skills && (
+						<Text py="2">{description}</Text>
+						{skills && (
+							<Text py="2" fontSize="sm">
+								Skills: {skills.join(", ")}
+							</Text>
+						)}
 						<Text py="2" fontSize="sm">
-							Skills: {skills.join(", ")}
+							Lessons: {lessonsCount}
 						</Text>
-					)}
-					<Text py="2">Number of lessons: {lessonsCount}</Text>
-				</CardBody>
-				<CardFooter pt="0">
-					<Text>
-						{rating} <StarIcon />
-					</Text>
-				</CardFooter>
-			</Stack>
-		</Card>
+					</CardBody>
+					<CardFooter pt="0">
+						<Box display="flex" alignItems="end">
+							<Text fontSize="sm" mr="5px">
+								{rating}
+							</Text>
+							<StarRatings
+								rating={rating}
+								starRatedColor="black"
+								numberOfStars={5}
+								starDimension="15px"
+								starSpacing="3px"
+							/>
+						</Box>
+					</CardFooter>
+				</Box>
+			</Card>
+		</Link>
 	);
 }
 

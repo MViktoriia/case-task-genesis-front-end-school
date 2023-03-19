@@ -13,8 +13,6 @@ function AppBar() {
 			zIndex="1"
 			px="4.5rem"
 			py="1.5rem"
-			mx="auto"
-			mb="20px"
 			bgColor="white"
 			borderBottom="1px solid var(--chakra-colors-chakra-border-color)"
 			shadow="lg"

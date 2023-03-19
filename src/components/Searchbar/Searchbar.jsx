@@ -15,7 +15,7 @@ function Searchbar({ handleClick }) {
 				<Input
 					pr="4.5rem"
 					type="text"
-					placeholder="Search for a cours"
+					placeholder="Search"
 					borderColor="rgb(0 166 152)"
 					borderWidth="2px"
 				/>
