@@ -23,7 +23,7 @@ function CoursesPage() {
 	const [itemOffset, setItemOffset] = useState(0);
 	const itemsPerPage = 10;
 	const endOffset = itemOffset + itemsPerPage;
-	console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+	// console.log(`Loading items from ${itemOffset} to ${endOffset}`);
 	const currentItems = useMemo(
 		() => courses.slice(itemOffset, endOffset),
 		[courses, endOffset, itemOffset]
@@ -35,9 +35,9 @@ function CoursesPage() {
 
 	const handlePageClick = (event) => {
 		const newOffset = (event.selected * itemsPerPage) % courses.length;
-		console.log(
-			`User requested page number ${event.selected}, which is offset ${newOffset}`
-		);
+		// console.log(
+		// 	`User requested page number ${event.selected}, which is offset ${newOffset}`
+		// );
 		setItemOffset(newOffset);
 	};
 	return (

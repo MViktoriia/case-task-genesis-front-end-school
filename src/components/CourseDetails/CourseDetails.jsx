@@ -29,19 +29,19 @@ function CourseDetails({
 	useEffect(() => {
 		if (url) {
 			const hls = new Hls();
-			console.log(url);
-			console.log(videoREf);
+			// console.log(url);
+			// console.log(videoREf);
 			hls.loadSource(url);
 			hls.attachMedia(videoREf.current);
 			hls.on(Hls.Events.MANIFEST_PARSED, function () {
-				videoREf.current.play();
+				// videoREf.current.play();
 			});
 		}
 	}, [url]);
 
 	return (
 		<>
-			<Button as={Link} mb={3} to={previouseLocation.current}>
+			<Button as={Link} mb={10} to={previouseLocation.current}>
 				Go back
 			</Button>
 			<Box
@@ -53,8 +53,8 @@ function CourseDetails({
 					<Heading as="h2" size="md" mb="25px">
 						{title}
 					</Heading>
-					<Text>{description}</Text>
-					<Box display="flex" alignItems="end">
+					<Text mb={2}>{description}</Text>
+					<Box display="flex" alignItems="end" mb={2}>
 						<Text fontSize="sm" mr="5px">
 							{rating}
 						</Text>
@@ -79,15 +79,15 @@ function CourseDetails({
 						</List>
 					</Box>
 				</Box>
-				<Box h="200px" w="280px">
+				<Box w="560px" border="1px solid var(--chakra-colors-chakra-border-color)">
 					<video
 						ref={videoREf}
 						poster={poster}
-						width="280"
+						width="560"
 						controls
 						loop
 						preload="auto"
-						muted
+						// muted
 					></video>
 				</Box>
 			</Box>

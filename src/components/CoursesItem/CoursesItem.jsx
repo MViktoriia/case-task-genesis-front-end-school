@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
 	Card,
 	Image,
@@ -9,17 +9,43 @@ import {
 	Box,
 } from "@chakra-ui/react";
 import StarRatings from "react-star-ratings";
+import Hls from "hls.js";
 import { Link } from "react-router-dom";
 
 function CoursesItem({
 	id,
 	img,
+	video,
 	title,
 	description,
 	skills,
 	lessonsCount,
 	rating,
 }) {
+	const videoREf = useRef();
+	const url = video;
+	const onVideoHover = () => {
+		if (url) {
+			const hls = new Hls();
+			hls.loadSource(url);
+			hls.attachMedia(videoREf.current);
+			hls.on(Hls.Events.MANIFEST_PARSED, function () {
+				videoREf.current.play();
+			});
+		}
+	}
+	const videoMouseLeaveHandler = () => {
+		if (url) {
+			const hls = new Hls();
+			hls.loadSource(url);
+			hls.attachMedia(videoREf.current);
+			hls.on(Hls.Events.MANIFEST_PARSED, function () {
+				videoREf.current.pause();
+			});
+		}
+	}
+
+
 	return (
 		<Link to={`/${id}`} display="flex" height="100%">
 			<Card
@@ -34,8 +60,17 @@ function CoursesItem({
 					shadow: "2xl",
 				}}
 			>
-				<Box h="160px" w="auto" overflow="hidden">
-					<Image h="100%" src={img} alt={title} />
+				<Box h="160px" w="auto" overflow="hidden" _even={{display:"none"}} role="group" >
+					<Image h="100%" src={img} alt={title} _groupHover={{display:"none",transition:"2s ease" }}  />
+					<video
+					ref={videoREf}
+					width="100%"
+					loop
+					preload="auto"
+					muted
+					onMouseEnter={onVideoHover}
+					onMouseLeave={videoMouseLeaveHandler}>
+					</video>
 				</Box>
 
 				<Box flex="1">

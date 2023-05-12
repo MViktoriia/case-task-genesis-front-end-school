@@ -10,7 +10,6 @@ import {
 import React from "react";
 
 function CourseLessonItem({ title, lessonImg, lessonStatus }) {
-	console.log(lessonStatus);
 	return (
 		<div>
 			<Card
