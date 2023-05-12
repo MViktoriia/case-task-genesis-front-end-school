@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
-function CourseLessonItem({ title, lessonImg, lessonStatus }) {
+function CourseLessonItem({ title, lessonImg, lessonStatus, lessonVideoLink }) {
 	return (
 		<div>
 			<Card

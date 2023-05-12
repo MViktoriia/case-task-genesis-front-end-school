@@ -20,6 +20,7 @@ function CourseLessonsList({ lessons }) {
 								".webp"
 							}
 							lessonStatus={lesson.status}
+							lessonVideoLink={lesson.link}
 						/>
 					</List>
 				))}
